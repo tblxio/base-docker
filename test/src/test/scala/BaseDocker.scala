@@ -1,13 +1,19 @@
 import com.whisk.docker.{DockerContainer, DockerKit, DockerReadyChecker}
 
+import scala.io.Source
 import scala.concurrent.duration._
+import org.json4s.jackson.JsonMethods.parse
 
 trait BaseDocker extends DockerKit {
 
-  val baseImageName = "tdh/base-docker"
+  val baseImageName = "techhublisbon/base-image"
 
-  //ToDo: Soft-code this value
-  val baseImageTag = "0.0.1"
+  val baseImageTag = {
+    implicit val formats = org.json4s.DefaultFormats
+
+    val jsonStr = Source.fromFile("../version.json").mkString
+    (parse(jsonStr) \\ "version").extract[String]
+  }
 
   val baseContainerName = "base"
 
