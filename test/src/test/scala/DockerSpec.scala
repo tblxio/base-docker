@@ -12,6 +12,18 @@ class DockerSpec extends BaseSpec with BaseDocker with ScalaFutures {
   "Base docker image" should "have SBT installed" in {
     val output = Process(s"docker exec $baseContainerName sbt sbtVersion").!!
     val lastLine = output.split("\n").last
-    lastLine should include("1.2.7")
+    lastLine should include regex ("(.*)[info](.*)\\d{1,}\\.\\d{1,}\\.\\d{1,}(.*)") // x.y.z
+  }
+
+  "Base docker image" should "have JSON parser installed" in {
+    val output = Process(s"docker exec $baseContainerName jq --version").!!
+    val lastLine = output.split("\n").last
+    lastLine should include regex ("jq-\\d{1,}\\.\\d{1,}(.*)") // x.y
+  }
+
+  "Base docker image" should "have docker installed" in {
+    val output = Process(s"docker exec $baseContainerName docker --version").!!
+    val lastLine = output.split("\n").last
+    lastLine should include regex ("Docker version \\d{1,}\\.\\d{1,}.\\d{1,}(.*)") // x.y.z
   }
 }

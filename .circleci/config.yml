@@ -1,0 +1,25 @@
+version: 2
+jobs:
+  build:
+    docker:
+    - image: techhublisbon/base-image:0.0.2
+
+    working_directory: ~/repo
+
+    steps:
+    - checkout
+
+    - run:
+        name: Build docker
+        command: |
+            VERSION=$(jq -r .version version.json)
+            docker build -t techhublisbon/base-image:$VERSION .
+
+    - run:
+        name: Run tests
+        command: (cd test/; sbt 'clean' 'test')
+
+    - run:
+        name: Deploy to Docker Hub (manual)
+        command: >
+            echo 'ToDo: Automate deployment'
