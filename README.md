@@ -4,6 +4,8 @@
 
 Base docker image to run Tech & Data Hub CI/CD pipelines
 
+Docker hub repo: https://hub.docker.com/r/techhublisbon/base-image
+
 ### Prerequisites
 
 * Install [SBT](https://www.scala-sbt.org/download.html)
@@ -44,3 +46,6 @@ This docker image uses the following dependencies/libraries:
   * License: [Apache 2.0](https://github.com/docker/docker-ce/blob/master/components/engine/LICENSE)
 * [JQ (Json Parser)]()
   * License: [Creative Commons 3.0](https://github.com/stedolan/jq/blob/master/COPYING)
+
+### ToDo:
+* Automate deployment to Docker Hub
