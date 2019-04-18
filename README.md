@@ -47,5 +47,13 @@ This docker image uses the following dependencies/libraries:
 * [JQ (Json Parser)]()
   * License: [Creative Commons 3.0](https://github.com/stedolan/jq/blob/master/COPYING)
 
-### ToDo:
+### ToDo
 * Automate deployment to Docker Hub
+
+### Contributing
+
+Review [the contributing guidelines](CONTRIBUTING.md) before you make your awesome contribution
+
+### License
+
+This project is licensed under the terms of the MIT license. See [LICENSE](LICENSE) 
