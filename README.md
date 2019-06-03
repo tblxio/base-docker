@@ -9,6 +9,7 @@ Docker hub repo: https://hub.docker.com/r/techhublisbon/base-image
 ### Prerequisites
 
 * Install [SBT](https://www.scala-sbt.org/download.html)
+* Install [Maven](https://maven.apache.org/download.cgi)
 * Install [Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/) 
 * Install [JQ](https://stedolan.github.io/jq/download/)
 
@@ -42,6 +43,8 @@ docker push techhublisbon/base-image:$VERSION
 This docker image uses the following dependencies/libraries:
 * [SBT](https://github.com/sbt/sbt)
   * License: [Apache 2.0](https://github.com/sbt/sbt/blob/develop/LICENSE)
+* [Maven](https://github.com/apache/maven)
+  * License: [Apache 2.0](https://maven.apache.org/ref/3.0/license.html)
 * [Docker CE](https://github.com/docker/docker-ce)
   * License: [Apache 2.0](https://github.com/docker/docker-ce/blob/master/components/engine/LICENSE)
 * [JQ (Json Parser)]()
