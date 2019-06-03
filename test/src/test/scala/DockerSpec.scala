@@ -15,6 +15,12 @@ class DockerSpec extends BaseSpec with BaseDocker with ScalaFutures {
     lastLine should include regex ("(.*)[info](.*)\\d{1,}\\.\\d{1,}\\.\\d{1,}(.*)") // x.y.z
   }
 
+  "Base docker image" should "have Maven installed" in {
+    val output = Process(s"docker exec $baseContainerName mvn --version").!!
+    val firstLine = output.split("\n").head
+    firstLine should include regex ("(.*)\\d{1,}\\.\\d{1,}\\.\\d{1,}") // x.y.z
+  }
+
   "Base docker image" should "have JSON parser installed" in {
     val output = Process(s"docker exec $baseContainerName jq --version").!!
     val lastLine = output.split("\n").last
